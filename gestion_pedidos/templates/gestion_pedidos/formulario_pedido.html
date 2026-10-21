@@ -1,0 +1,41 @@
+{% extends 'gestion_pedidos/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-5">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Ingreso de Nuevo Pedido</h4>
+            </div>
+            <div class="card-body">
+                <!-- Leyenda de Badges según modalidad -->
+                <div class="mb-3">
+                    <span class="badge bg-info text-dark p-2 me-2">DESPACHO EXPRESS (Min $15.000)</span>
+                    <span class="badge bg-warning text-dark p-2">RETIRO EN TIENDA</span>
+                </div>
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger p-2 mt-1 small">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-success">Guardar y Confirmar Pedido</button>
+                        <a href="{% url 'catalogo_productos' %}" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

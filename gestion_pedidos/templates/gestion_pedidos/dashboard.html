@@ -1,0 +1,40 @@
+{% extends 'gestion_pedidos/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Dashboard de Resumen Operativo</h2>[cite: 3]
+
+<div class="row text-center">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body">
+                <h5>Total Pedidos</h5>
+                <h2 class="display-6 fw-bold">{{ total_pedidos }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-dark shadow">
+            <div class="card-body">
+                <h5>Despacho Express</h5>
+                <h2 class="display-6 fw-bold">{{ pedidos_express }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-dark shadow">
+            <div class="card-body">
+                <h5>Retiro en Tienda</h5>
+                <h2 class="display-6 fw-bold">{{ pedidos_pickup }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body">
+                <h5>Ingresos Totales</h5>
+                <h2 class="display-6 fw-bold">${{ ingresos_totales }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
